@@ -5,6 +5,8 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>Test Project</name>
   <description>my first maven project</description>
+  
+  <!-- This was added in by me to get the program working -->
   <dependencies>
   <dependency>
     <groupId>junit</groupId>
