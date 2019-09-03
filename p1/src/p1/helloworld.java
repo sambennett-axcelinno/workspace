@@ -26,6 +26,8 @@ public class helloworld {
 		helloworld test = new helloworld(5);
 		System.out.println("Hello World");
 		System.out.println(test.num);
+		test.num = 10;
+		System.out.println(test.num);
 
 	}
 
