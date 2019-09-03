@@ -1,22 +1,22 @@
-package com.axcelinno.maven;
+package com.axcelinno;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import com.axcellino.maven.App;
-
 public class AppTest {
 
-	/*
-	 * need to import class before you can run a test
-	 * */
-	
 	@Test
 	public void test() {
-		//fail("Not yet implemented");
 		App test = new App();
+		//fail("Not yet implemented");
 		assertEquals("sample", test.sample());
+		//assertNotSame("fun", test.sample());
+	}
+	
+	@Test
+	public void notEquals() {
+		App test = new App();
 		assertNotSame("fun", test.sample());
 	}
 

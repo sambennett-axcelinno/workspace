@@ -1,4 +1,4 @@
-package com.axcellino.maven;
+package com.axcelinno;
 
 public class App {
 	public App() {
