@@ -11,11 +11,10 @@ public class AppTest {
 		App test = new App();
 		//fail("Not yet implemented");
 		assertEquals("sample", test.sample());
-		//assertNotSame("fun", test.sample());
 	}
 	
 	@Test
-	public void notEquals() {
+	public void notequals() {
 		App test = new App();
 		assertNotSame("fun", test.sample());
 	}
