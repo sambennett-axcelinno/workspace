@@ -16,7 +16,6 @@ public class helloworld {
 	int num;
 	public helloworld(int num) {
 		this.num = num;
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -28,7 +27,7 @@ public class helloworld {
 		System.out.println(test.num);
 		test.num = 10;
 		System.out.println(test.num);
-
+		System.out.println("Hello");
 	}
 
 }
