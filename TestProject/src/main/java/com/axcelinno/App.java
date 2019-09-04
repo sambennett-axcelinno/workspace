@@ -13,5 +13,8 @@ public class App {
 	public void a() {
 		
 	}
-
+	
+	public int newfeature() {
+		return 5*5;
+	}
 }
