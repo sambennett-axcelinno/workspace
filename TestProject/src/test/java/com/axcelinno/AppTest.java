@@ -11,6 +11,7 @@ public class AppTest {
 		App test = new App();
 		//fail("Not yet implemented");
 		assertEquals("sample", test.sample());
+		assertEquals(4, test.add(2, 2));
 	}
 	
 	@Test
