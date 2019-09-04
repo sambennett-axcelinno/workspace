@@ -9,7 +9,6 @@
 	<description>my first maven project</description>
 
 	<!-- This was added in by me to get the program working -->
-	<!-- Testing new branch  -->
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
