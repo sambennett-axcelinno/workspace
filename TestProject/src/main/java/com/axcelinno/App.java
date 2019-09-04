@@ -9,5 +9,9 @@ public class App {
 	public boolean b() {
 		return true;
 	}
+	
+	public void a() {
+		
+	}
 
 }
