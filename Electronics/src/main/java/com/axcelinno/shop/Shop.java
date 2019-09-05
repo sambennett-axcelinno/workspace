@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Shop {
 	
-	Customer customer;
+	//Customer customer;
 	float day;
 	double discountAmt = 0.0;
 	double finalAmt = 0.0;
@@ -49,12 +49,16 @@ public class Shop {
 		if (i <= 0) {
 			System.out.println("Please enter a valid number(1 and up)");
 		}
-		else if (i <= 1) {
+		else if (i <= 1 && p.isAvailable()) {
 			c.cart.add(p);
+			p.changQuantity(1);
 		}
 		else {
-			for (int it = 0; it < i; it++) {
-				c.cart.add(p);
+			if (p.isAvailable()) {
+				for (int it = 0; it < i; it++) {
+					c.cart.add(p);
+					p.changQuantity(1);
+				}
 			}
 		}
 	}
@@ -65,23 +69,40 @@ public class Shop {
 		}
 		else if (i <= 1) {
 			c.cart.remove(c.cartLocation(p));
+			p.returnQuantity(1);
 		}
 		else {
 			for (int it = 0; it < i; it++) {
 				c.cart.remove(c.cartLocation(p));
+				p.returnQuantity(1);
 			}
 		}
 	}
 	
-	public boolean isEmployeed(int i) {
-		return empID.contains(i) ? true : false;
+	public boolean isEmployeed(int i, Customer  c) {
+		if (empID.contains(i)) {
+			c.jobStatus = true;
+			return true;
+		}
+		else {
+			c.jobStatus = false;
+			return false;
+		}
 	}
+	
 	
 	public void shopLoop() {
 		Scanner s = new Scanner(System.in);
 		System.out.println("Are you an employee?(yes or no)");
-		String employeed = s.nextLine();
-		System.out.println(employeed);
+		String output = s.nextLine();
+		System.out.println("Please Enter the product and quantity of that product you want? (format of product quantity)");
+		while (!output.equals("e") && s.hasNext()) {
+			System.out.println("Please Enter the product and quantity of that product you want? (format of product quantity)");
+			output = s.next();
+			String quant = s.next();
+			System.out.println(output); 
+			System.out.println(quant);
+		}
 	}
 
 }

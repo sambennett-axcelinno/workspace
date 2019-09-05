@@ -47,13 +47,17 @@ public class Shop_tests {
 		Customer sam = new Customer(1);
 		Shop shop = new Shop();
 		Product laptop = new Product(1,  "laptop", 999.99, 150);
-		assertTrue(shop.isEmployeed(12189554));
-		assertFalse(shop.isEmployeed(1));
+		assertTrue(shop.isEmployeed(12189554, sam));
+		assertTrue(sam.jobStatus);
+		assertFalse(shop.isEmployeed(1, sam));
+		assertFalse(sam.jobStatus);
 		shop.addItem(laptop, sam, 2);
 		assertEquals(2, sam.cartSize());
+		assertEquals(148, laptop.quantity);
 		sam.printCart();
 		shop.removeItem(laptop, sam, 2);
 		assertEquals(0,  sam.cartSize());
+		assertEquals(150, laptop.quantity);
 		sam.printCart();
 		//shop.shopLoop();
 	}

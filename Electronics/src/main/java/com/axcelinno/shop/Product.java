@@ -34,4 +34,8 @@ public class Product {
 		return this.quantity -= i;
 		
 	}
+	
+	public int returnQuantity(int i) {
+		return this.quantity += i;
+	}
 }
