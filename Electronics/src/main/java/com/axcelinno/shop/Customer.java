@@ -20,8 +20,12 @@ public class Customer {
 	
 	public void printCart() {
 		for (Product p : cart) {
-			System.out.println(p.getID() + " and " + p.getName());
+			System.out.println(p.getName());
 		}
+	}
+	
+	public int cartLocation(Product p) {
+		return cart.indexOf(p);
 	}
 
 }

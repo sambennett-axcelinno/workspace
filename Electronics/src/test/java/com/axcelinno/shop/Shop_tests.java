@@ -23,6 +23,7 @@ public class Shop_tests {
 	public void customer_test() {
 		Customer customer = new Customer(1);
 		Product laptop = new Product(1, "laptop", 999.99, 150);
+		Product tablet = new Product(2,  "tablet", 300.00,150);
 		assertEquals(1,  customer.ID);
 		assertEquals(0.0, customer.balance, 1e-8);
 		assertFalse(customer.jobStatus);
@@ -32,16 +33,29 @@ public class Shop_tests {
 		assertEquals(999.99, customer.balance, 1e-8);
 		customer.cart.add(laptop);
 		customer.balance +=customer.cart.get(customer.cart.size() - 1).price;
-		assertEquals(999.99*2, customer.balance, 1e-8);
+		customer.cart.add(tablet);
+		customer.balance +=customer.cart.get(customer.cart.size() - 1).price;
+		assertEquals(2299.98, customer.balance, 1e-8);
+		customer.printCart();
+		System.out.println(customer.cartLocation(laptop));
+		customer.cart.remove(customer.cartLocation(tablet));
 		customer.printCart();
 	}
 	
 	@Test
 	public void shop_test() {
+		Customer sam = new Customer(1);
+		Shop shop = new Shop(sam);
+		Product laptop = new Product(1,  "laptop", 999.99, 150);
+		shop.showEmp();
+		System.out.println(shop.customer.getBalance());
+		System.out.println(shop.products.get(10).name);
+		/*
 		Scanner s = new Scanner(System.in);
 		System.out.println("Are you an employee?(yes or no)");
 		String employeed = s.nextLine();
 		System.out.println(employeed);
+		*/
 	}
 
 }
