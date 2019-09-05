@@ -17,4 +17,11 @@ public class App {
 	public void a() {
 		
 	}
+<<<<<<< HEAD
+=======
+	
+	public int newfeature() {
+		return 5*5;
+	}
+>>>>>>> develop
 }

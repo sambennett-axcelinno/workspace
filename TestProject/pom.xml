@@ -18,6 +18,7 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	<!-- Used to install the compiler -->
 	<build>
 		<plugins>
 			<plugin>
