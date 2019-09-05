@@ -4,7 +4,7 @@ public class Product {
 	
 	int ID;
 	String name;
-	double price;
+	double price = 0.0;
 	int  quantity;
 	
 	public Product(int ID, String name, double price, int quantity) {
@@ -20,5 +20,18 @@ public class Product {
 	
 	public boolean isAvailable() {
 		return this.quantity > 0 ? true : false;
+	}
+	
+	public int getID() {
+		return this.ID;
+	}
+	
+	public String getName() {
+		return this.name;
+	}
+	
+	public int changQuantity(int i) {
+		return this.quantity -= i;
+		
 	}
 }
