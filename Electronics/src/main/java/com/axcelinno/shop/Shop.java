@@ -34,8 +34,8 @@ public class Shop {
 	};
 	ArrayList<Integer> empID = new ArrayList<Integer>(Arrays.asList(12189554, 54993663, 48723891, 62284457, 32600943, 89237002, 50196955));
 	
-	public Shop(Customer customer) {
-		this.customer = customer;
+	public Shop() {
+		
 	}
 	
 	
@@ -45,5 +45,43 @@ public class Shop {
 		}
 	}
 	
+	public void addItem(Product p, Customer c, int i) {
+		if (i <= 0) {
+			System.out.println("Please enter a valid number(1 and up)");
+		}
+		else if (i <= 1) {
+			c.cart.add(p);
+		}
+		else {
+			for (int it = 0; it < i; it++) {
+				c.cart.add(p);
+			}
+		}
+	}
+	
+	public void removeItem(Product p, Customer c, int i) {
+		if (i <= 0) {
+			System.out.println("Please enter a valid number(1 and up)");
+		}
+		else if (i <= 1) {
+			c.cart.remove(c.cartLocation(p));
+		}
+		else {
+			for (int it = 0; it < i; it++) {
+				c.cart.remove(c.cartLocation(p));
+			}
+		}
+	}
+	
+	public boolean isEmployeed(int i) {
+		return empID.contains(i) ? true : false;
+	}
+	
+	public void shopLoop() {
+		Scanner s = new Scanner(System.in);
+		System.out.println("Are you an employee?(yes or no)");
+		String employeed = s.nextLine();
+		System.out.println(employeed);
+	}
 
 }

@@ -27,5 +27,9 @@ public class Customer {
 	public int cartLocation(Product p) {
 		return cart.indexOf(p);
 	}
+	
+	public int cartSize() {
+		return this.cart.size();
+	}
 
 }

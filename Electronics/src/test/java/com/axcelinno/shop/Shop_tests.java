@@ -45,17 +45,17 @@ public class Shop_tests {
 	@Test
 	public void shop_test() {
 		Customer sam = new Customer(1);
-		Shop shop = new Shop(sam);
+		Shop shop = new Shop();
 		Product laptop = new Product(1,  "laptop", 999.99, 150);
-		shop.showEmp();
-		System.out.println(shop.customer.getBalance());
-		System.out.println(shop.products.get(10).name);
-		/*
-		Scanner s = new Scanner(System.in);
-		System.out.println("Are you an employee?(yes or no)");
-		String employeed = s.nextLine();
-		System.out.println(employeed);
-		*/
+		assertTrue(shop.isEmployeed(12189554));
+		assertFalse(shop.isEmployeed(1));
+		shop.addItem(laptop, sam, 2);
+		assertEquals(2, sam.cartSize());
+		sam.printCart();
+		shop.removeItem(laptop, sam, 2);
+		assertEquals(0,  sam.cartSize());
+		sam.printCart();
+		//shop.shopLoop();
 	}
 
 }
