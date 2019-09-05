@@ -17,4 +17,8 @@ public class App {
 	public int newfeature() {
 		return 5*5;
 	}
+	
+	public int feature2() {
+		return 100;
+	}
 }
