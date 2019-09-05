@@ -12,8 +12,9 @@ public class AppTest {
 		//fail("Not yet implemented");
 		assertEquals("sample", test.sample());
 		assertEquals(25, test.newfeature());
+		
 	}
-	
+
 	@Test
 	public void notequals() {
 		App test = new App();
