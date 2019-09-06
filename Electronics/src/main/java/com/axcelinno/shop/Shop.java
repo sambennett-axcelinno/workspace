@@ -213,7 +213,7 @@ public class Shop {
 				}
 				System.out.println("Here is your updated cart.");
 				c.printCart();
-				System.out.println("What would you like to remove? (no when done) (format of product quantity)");
+				System.out.println("What would you like to remove? (e when done) (format of product quantity)");
 			}
 			System.out.println("Here is your final cart and pricing:");
 			c.printCart();

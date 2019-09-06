@@ -103,7 +103,6 @@ public class Shop_tests {
 		assertEquals(0.0, sam.balance, 1e-8);
 		assertEquals(0.0,  sam.discountAmt, 1e-8);
 		assertEquals(0.0,  sam.finalAmt, 1e-8);
-		Customer cus = new Customer(3);
 	}
 	
 	@Test
