@@ -38,12 +38,14 @@ public class Customer {
 		this.cart.add(p);
 		p.changeQuantity(1);
 		this.balance += p.price;
+		this.finalAmt += p.price;
 	}
 	
 	public void removeFromCart(Product p) {
 		this.cart.remove(p);
 		p.returnQuantity(1);
 		this.balance -= p.price;
+		this.finalAmt -= p.price;
 	}
 	
 	public double round(double value, int places) {
