@@ -43,41 +43,7 @@ public class Shop {
 			System.out.println(i);
 		}
 	}
-	
-	public void addItem(Product p, Customer c, int i) {
-		if (i <= 0) {
-			System.out.println("Please enter a valid number(1 and up)");
-		}
-		else if (i <= 1 && p.isAvailable()) {
-			c.addToCart(p);
-			addDiscount(c,  p);
-		}
-		else {
-			if (p.isAvailable()) {
-				for (int it = 0; it < i; it++) {
-					c.addToCart(p);
-					addDiscount(c,  p);
-				}
-			}
-		}
-	}
-	
-	public void removeItem(Product p, Customer c, int i) {
-		if (i <= 0) {
-			System.out.println("Please enter a valid number(1 and up)");
-		}
-		else if (i <= 1) {
-			c.removeFromCart(p);
-			removeDiscount(c,  p);
-		}
-		else {
-			for (int it = 0; it < i; it++) {
-				c.removeFromCart(p);
-				removeDiscount(c,  p);
-			}
-		}
-	}
-	
+
 	public void addDiscount(Customer c, Product p) {
 		if (c.jobStatus && p.ID != 3) {
 			double dis = p.price * 0.3;
@@ -91,7 +57,6 @@ public class Shop {
 			c.discountAmt += dis;
 			c.finalAmt += newPrice;
 		}
-		
 	}
 	
 	public void removeDiscount(Customer c, Product p) {
@@ -106,6 +71,36 @@ public class Shop {
 			double newPrice = p.price * 0.9;
 			c.discountAmt -= dis;
 			c.finalAmt -= newPrice;
+		}
+	}
+	
+	public void addItem(Product p, Customer c, int i) {
+		if (i <= 0) {
+			System.out.println("Please enter a valid number(1 and up)");
+		}
+		else if (i <= 1 && p.isAvailable()) {
+			c.addToCart(p);
+		}
+		else {
+			if (p.isAvailable()) {
+				for (int it = 0; it < i; it++) {
+					c.addToCart(p);
+				}
+			}
+		}
+	}
+	
+	public void removeItem(Product p, Customer c, int i) {
+		if (i <= 0) {
+			System.out.println("Please enter a valid number(1 and up)");
+		}
+		else if (i <= 1) {
+			c.removeFromCart(p);
+		}
+		else {
+			for (int it = 0; it < i; it++) {
+				c.removeFromCart(p);
+			}
 		}
 	}
 	
@@ -128,6 +123,41 @@ public class Shop {
 		}
 	}
 	
+	public Product convertToProd(String s) {
+		Product retProd = null;;
+		if (s.equals("laptop") || s.equals("Laptop")) {
+			retProd = productList.get(1);
+		}
+		else if (s.equals("tablet") || s.equals("Tablet")) {
+			retProd = productList.get(2);
+		}
+		else if (s.equals("tv") || s.equals("TV")) {
+			retProd = productList.get(3);
+		}
+		else if (s.equals("refridegerator") || s.equals("Refridgerator")) {
+			retProd = productList.get(4);
+		}
+		else if (s.equals("console") || s.equals("Console")) {
+			retProd = productList.get(5);
+		}
+		else if (s.equals("camera") || s.equals("Camera")) {
+			retProd = productList.get(6);
+		}
+		else if (s.equals("headphones") || s.equals("Headphones")) {
+			retProd = productList.get(7);
+		}
+		else if (s.equals("printer") || s.equals("Printer")) {
+			retProd = productList.get(8);
+		}
+		else if (s.equals("phone") || s.equals("Phone")) {
+			retProd = productList.get(9);
+		}
+		else if (s.equals("speakers") || s.equals("Speakers")) {
+			retProd = productList.get(10);
+		}
+		return retProd;
+	}
+	
 	
 	public void shopLoop(Customer c) {
 		Scanner s = new Scanner(System.in);
@@ -146,8 +176,16 @@ public class Shop {
 				break;
 			}
 			String quant = s.next();
-			System.out.println(output); 
-			System.out.println(quant);
+			Integer t = Integer.parseInt(quant);
+			Product p = convertToProd(output);
+			addItem(p,  c,  t);
+			for (int q = 0; q < t; q++) {
+				addDiscount(c,  p);
+			}
+			//System.out.println(output); 
+			//System.out.println(quant);
+			System.out.println("Current Cart:");
+			c.printCart();
 			System.out.println("Please Enter the product and quantity of that product you want? (format of product quantity)");
 		}
 	}
