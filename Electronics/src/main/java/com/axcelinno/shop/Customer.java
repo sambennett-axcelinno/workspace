@@ -31,5 +31,19 @@ public class Customer {
 	public int cartSize() {
 		return this.cart.size();
 	}
+	
+	public void addToCart(Product p) {
+		this.cart.add(p);
+		p.changeQuantity(1);
+		this.numItems++;
+		this.balance += p.price;
+	}
+	
+	public void removeFromCart(Product p) {
+		this.cart.remove(p);
+		p.returnQuantity(1);
+		this.numItems--;
+		this.balance -= p.price;
+	}
 
 }

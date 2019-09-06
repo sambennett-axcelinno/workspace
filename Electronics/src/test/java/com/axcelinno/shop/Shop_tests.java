@@ -15,7 +15,7 @@ public class Shop_tests {
 		assertEquals(150, laptop.quantity);
 		assertEquals(999.99, laptop.getPrice(), 1e-8);
 		assertTrue(laptop.isAvailable());
-		laptop.changQuantity(1);
+		laptop.changeQuantity(1);
 		assertEquals(149, laptop.quantity);
 	}
 	
@@ -43,23 +43,48 @@ public class Shop_tests {
 	}
 	
 	@Test
+	public void add_and_remove_items() {
+		Customer sam = new Customer(1);
+		Shop shop = new Shop();
+		shop.addItem(shop.productList.get(2), sam, 2);
+		//sam.printCart();
+		shop.printAvailability();
+		assertEquals(2, sam.cartSize());
+		assertEquals(600.00, sam.balance, 1e-8);
+		assertEquals(148, shop.productList.get(2).quantity);
+		shop.addItem(shop.productList.get(3), sam, 1);
+		shop.addItem(shop.productList.get(2), sam, 2);
+		//sam.printCart();
+		shop.printAvailability();
+		assertEquals(5,  sam.cartSize());
+		assertEquals(5300.00,  sam.balance, 1e-8);
+		assertEquals(146, shop.productList.get(2).quantity);
+		assertEquals(99,  shop.productList.get(3).quantity);
+		shop.removeItem(shop.productList.get(2), sam,  3);
+		//sam.printCart();
+		shop.printAvailability();
+		assertEquals(2, sam.cartSize());
+		assertEquals(4400.00,  sam.balance, 1e-8);
+		assertEquals(149,  shop.productList.get(2).quantity);
+	}
+	
+	@Test
+	public void employee_check() {
+		int emp = 89237002;
+		Customer sam = new Customer(1);
+		Customer eric = new Customer(2);
+		Shop shop = new Shop();
+		shop.isEmployeed(emp, sam);
+		assertTrue(sam.jobStatus);
+		shop.isEmployeed(123456789,  eric);
+		assertFalse(eric.jobStatus);
+	}
+	
+	@Test
 	public void shop_test() {
 		Customer sam = new Customer(1);
 		Shop shop = new Shop();
-		Product laptop = new Product(1,  "laptop", 999.99, 150);
-		assertTrue(shop.isEmployeed(12189554, sam));
-		assertTrue(sam.jobStatus);
-		assertFalse(shop.isEmployeed(1, sam));
-		assertFalse(sam.jobStatus);
-		shop.addItem(laptop, sam, 2);
-		assertEquals(2, sam.cartSize());
-		assertEquals(148, laptop.quantity);
-		sam.printCart();
-		shop.removeItem(laptop, sam, 2);
-		assertEquals(0,  sam.cartSize());
-		assertEquals(150, laptop.quantity);
-		sam.printCart();
-		//shop.shopLoop();
+		shop.shopLoop(sam);
 	}
 
 }

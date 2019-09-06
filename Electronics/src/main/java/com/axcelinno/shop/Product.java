@@ -30,12 +30,16 @@ public class Product {
 		return this.name;
 	}
 	
-	public int changQuantity(int i) {
+	public int changeQuantity(int i) {
 		return this.quantity -= i;
 		
 	}
 	
 	public int returnQuantity(int i) {
 		return this.quantity += i;
+	}
+	
+	public String toString() {
+		return name;
 	}
 }
