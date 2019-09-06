@@ -50,11 +50,13 @@ public class Shop {
 		}
 		else if (i <= 1 && p.isAvailable()) {
 			c.addToCart(p);
+			addDiscount(c,  p);
 		}
 		else {
 			if (p.isAvailable()) {
 				for (int it = 0; it < i; it++) {
 					c.addToCart(p);
+					addDiscount(c,  p);
 				}
 			}
 		}
@@ -88,6 +90,21 @@ public class Shop {
 			c.finalAmt += newPrice;
 		}
 		
+	}
+	
+	public void removeDiscount(Customer c, Product p) {
+		if (c.jobStatus && p.ID != 3) {
+			double dis = p.price * 0.3;
+			double newPrice = p.price * 0.7;
+			c.discountAmt -= dis;
+			c.finalAmt -= newPrice;
+		}
+		else if (!c.jobStatus && isHoliday) {
+			double dis = p.price * 0.1;
+			double newPrice = p.price * 0.9;
+			c.discountAmt -= dis;
+			c.finalAmt -= newPrice;
+		}
 	}
 	
 	public void printAvailability() {

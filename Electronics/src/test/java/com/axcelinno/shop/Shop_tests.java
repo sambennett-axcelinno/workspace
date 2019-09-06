@@ -91,7 +91,6 @@ public class Shop_tests {
 		assertEquals(999.99, sam.balance, 1e-8);
 		assertEquals(299.997,  sam.discountAmt, 1e-8);
 		assertEquals(699.993,  sam.finalAmt, 1e-8);
-		assertEquals(999.99,  sam.balance, 1e-8);
 		Customer bob = new Customer(2);
 		shop.isHoliday = true;
 		bob.addToCart(shop.productList.get(4));
@@ -99,6 +98,11 @@ public class Shop_tests {
 		assertEquals(119.999,  bob.discountAmt, 1e-8);
 		assertEquals(1079.991,  bob.finalAmt, 1e-8);
 		assertEquals(1199.99, bob.balance, 1e-8);
+		sam.removeFromCart(shop.productList.get(1)); 
+		shop.removeDiscount(sam,  shop.productList.get(1));
+		assertEquals(0.0, sam.balance, 1e-8);
+		assertEquals(0.0,  sam.discountAmt, 1e-8);
+		assertEquals(0.0,  sam.finalAmt, 1e-8);
 	}
 	
 	@Test
