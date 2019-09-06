@@ -190,7 +190,7 @@ public class Shop {
 			c.printCart();
 			System.out.println("Please Enter the product and quantity of that product you want? (format of product quantity.  e when done)");
 		}
-		System.out.println("Is there  anything that you would like to remove from you cart before you checkout? (yes or no)");
+		System.out.println("Is there anything that you would like to remove from you cart before you checkout? (yes or no)");
 		output = s.next();
 		if (output.equals("no")) {
 			System.out.println("Here is your final cart and pricing:");
@@ -198,10 +198,10 @@ public class Shop {
 			c.returnPricing();
 		}
 		else {
-			System.out.println("What would you like to remove? (no when done) (format of product quantity)");
+			System.out.println("What would you like to remove? (e when done) (format of product quantity)");
 			while (s.hasNext()) {
 				output = s.next();
-				if (output.equals("no")) {
+				if (output.equals("e")) {
 					break;
 				}
 				String quant = s.next();
@@ -221,8 +221,7 @@ public class Shop {
 		}
 	}
 	
-	public void shopping() {
-		Scanner scanner = new Scanner(System.in);
+	public void store() {
 		cusID++;
 		System.out.println("Welcome to Axcelinno Electronics!");
 		Customer c = new Customer(cusID);

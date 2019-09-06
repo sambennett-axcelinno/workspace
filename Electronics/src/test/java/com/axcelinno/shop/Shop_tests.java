@@ -114,7 +114,10 @@ public class Shop_tests {
 	@Test
 	public void runShop() {
 		Shop shop = new  Shop();
-		shop.shopping();
+		shop.store();
+		assertEquals(148,  shop.productList.get(2).quantity);
+		shop.store();
+		assertEquals(147,  shop.productList.get(2).quantity);
+		assertEquals(298, shop.productList.get(9).quantity);
 	}
-
 }
