@@ -58,14 +58,12 @@ public class Customer {
 	}
 	
 	public void returnPricing() {
-		if (this.finalAmt == 0.0) {
-			this.finalAmt = this.balance;
-		}
+		this.finalAmt = this.balance - this.discountAmt;
 		salesTax = round(finalAmt * 1.075, 2);
 		System.out.println("You have bought " + cartSize() + " items.");
 		System.out.println("You spent: " + round(this.balance,  2));
 		System.out.println("You saved: " + round(this.discountAmt,  2));
-		System.out.println("Your spent " + round(this.balance - this.discountAmt,  2) +  " after discount added.");
+		System.out.println("Your spent " + round(this.finalAmt,  2) +  " after discount added.");
 		System.out.println("Aftter sales tax you spent: " + salesTax);
 	}
 

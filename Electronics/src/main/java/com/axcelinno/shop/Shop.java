@@ -6,7 +6,7 @@ public class Shop {
 	
 	//Customer customer;
 	double day = 12.6;
-	boolean isHoliday = false;
+	boolean isHoliday = true;
 	int cusID = 0;
 	HashMap<Integer, Product> productList = new HashMap<Integer, Product>() {
 		{
@@ -50,13 +50,13 @@ public class Shop {
 			double dis = p.price * 0.3;
 			double newPrice = p.price * 0.7;
 			c.discountAmt += dis;
-			//c.finalAmt += newPrice;
+			c.finalAmt += newPrice;
 		}
 		else if (!c.jobStatus && isHoliday) {
 			double dis = p.price * 0.1;
 			double newPrice = p.price * 0.9;
 			c.discountAmt += dis;
-			//c.finalAmt += newPrice;
+			c.finalAmt += newPrice;
 		}
 	}
 	
@@ -65,13 +65,13 @@ public class Shop {
 			double dis = p.price * 0.3;
 			double newPrice = p.price * 0.7;
 			c.discountAmt -= dis;
-			//c.finalAmt -= newPrice;
+			c.finalAmt -= newPrice;
 		}
 		else if (!c.jobStatus && isHoliday) {
 			double dis = p.price * 0.1;
 			double newPrice = p.price * 0.9;
 			c.discountAmt -= dis;
-			//c.finalAmt -= newPrice;
+			c.finalAmt -= newPrice;
 		}
 	}
 	
