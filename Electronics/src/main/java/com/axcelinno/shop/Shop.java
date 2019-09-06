@@ -15,8 +15,8 @@ public class Shop {
 			put(2,  tablet);
 			Product tv = new Product(3,  "tv", 4100.00, 100);
 			put(3,  tv);
-			Product refriderator = new Product(4,  "refriderator", 1199.99, 15);
-			put(4, refriderator);
+			Product refrigerator = new Product(4,  "refrigerator", 1199.99, 15);
+			put(4, refrigerator);
 			Product console = new Product(5,  "game console", 399.99, 250);
 			put(5, console);
 			Product camera = new Product(6,  "camera", 349.99, 150);
@@ -78,6 +78,9 @@ public class Shop {
 		if (i <= 0) {
 			System.out.println("Please enter a valid number(1 and up)");
 		}
+		else if (!p.isAvailable()) {
+			System.out.println(p.toString() + " is sold out.  Please check back later once a restock has happened.");
+		}
 		else if (i <= 1 && p.isAvailable()) {
 			c.addToCart(p);
 		}
@@ -124,7 +127,7 @@ public class Shop {
 	}
 	
 	public Product convertToProd(String s) {
-		Product retProd = null;;
+		Product retProd = new Product(0,  "dummy", 0, 0);
 		if (s.equals("laptop") || s.equals("Laptop")) {
 			retProd = productList.get(1);
 		}
@@ -134,7 +137,7 @@ public class Shop {
 		else if (s.equals("tv") || s.equals("TV")) {
 			retProd = productList.get(3);
 		}
-		else if (s.equals("refridegerator") || s.equals("Refridgerator")) {
+		else if (s.equals("refrigerator") || s.equals("Refrigerator")) {
 			retProd = productList.get(4);
 		}
 		else if (s.equals("console") || s.equals("Console")) {
@@ -182,11 +185,38 @@ public class Shop {
 			for (int q = 0; q < t; q++) {
 				addDiscount(c,  p);
 			}
-			//System.out.println(output); 
-			//System.out.println(quant);
 			System.out.println("Current Cart:");
 			c.printCart();
-			System.out.println("Please Enter the product and quantity of that product you want? (format of product quantity)");
+			System.out.println("Please Enter the product and quantity of that product you want? (format of product quantity.  e when done)");
+		}
+		System.out.println("Is there  anything that you would like to remove from you cart before you checkout? (yes or no)");
+		output = s.next();
+		if (output.equals("no")) {
+			System.out.println("Here is your final cart and pricing:");
+			c.printCart();
+			c.returnPricing();
+		}
+		else {
+			System.out.println("What would you like to remove? (no when done) (format of product quantity)");
+			while (s.hasNext()) {
+				output = s.next();
+				if (output.equals("no")) {
+					break;
+				}
+				String quant = s.next();
+				Integer t = Integer.parseInt(quant);
+				Product p = convertToProd(output);
+				removeItem(p,  c,  t);
+				for (int q = 0; q < t; q++) {
+					removeDiscount(c,  p);
+				}
+				System.out.println("Here is your updated cart.");
+				c.printCart();
+				System.out.println("What would you like to remove? (no when done) (format of product quantity)");
+			}
+			System.out.println("Here is your final cart and pricing:");
+			c.printCart();
+			c.returnPricing();
 		}
 	}
 
