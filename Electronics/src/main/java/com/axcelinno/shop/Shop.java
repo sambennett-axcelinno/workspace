@@ -68,10 +68,12 @@ public class Shop {
 		}
 		else if (i <= 1) {
 			c.removeFromCart(p);
+			removeDiscount(c,  p);
 		}
 		else {
 			for (int it = 0; it < i; it++) {
 				c.removeFromCart(p);
+				removeDiscount(c,  p);
 			}
 		}
 	}
