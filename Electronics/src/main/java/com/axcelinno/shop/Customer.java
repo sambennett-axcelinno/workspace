@@ -5,7 +5,9 @@ import java.util.*;
 public class Customer {
 	
 	int ID;
-	double balance = 0;
+	double balance = 0.0;
+	double discountAmt = 0.0;
+	double finalAmt = 0.0;
 	ArrayList<Product> cart = new ArrayList<Product>();
 	boolean jobStatus = false;
 	int numItems = 0;

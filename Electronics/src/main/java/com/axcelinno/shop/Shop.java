@@ -5,9 +5,8 @@ import java.util.*;
 public class Shop {
 	
 	//Customer customer;
-	float day;
-	double discountAmt = 0.0;
-	double finalAmt = 0.0;
+	double day = 12.6;
+	boolean isHoliday = false;
 	HashMap<Integer, Product> productList = new HashMap<Integer, Product>() {
 		{
 			Product laptop = new Product(1,  "laptop", 999.99, 150);
@@ -73,6 +72,22 @@ public class Shop {
 				c.removeFromCart(p);
 			}
 		}
+	}
+	
+	public void addDiscount(Customer c, Product p) {
+		if (c.jobStatus && p.ID != 3) {
+			double dis = p.price * 0.3;
+			double newPrice = p.price * 0.7;
+			c.discountAmt += dis;
+			c.finalAmt += newPrice;
+		}
+		else if (!c.jobStatus && isHoliday) {
+			double dis = p.price * 0.1;
+			double newPrice = p.price * 0.9;
+			c.discountAmt += dis;
+			c.finalAmt += newPrice;
+		}
+		
 	}
 	
 	public void printAvailability() {
