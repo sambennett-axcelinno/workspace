@@ -7,6 +7,7 @@ public class Shop {
 	//Customer customer;
 	double day = 12.6;
 	boolean isHoliday = false;
+	int cusID = 0;
 	HashMap<Integer, Product> productList = new HashMap<Integer, Product>() {
 		{
 			Product laptop = new Product(1,  "laptop", 999.99, 150);
@@ -218,6 +219,14 @@ public class Shop {
 			c.printCart();
 			c.returnPricing();
 		}
+	}
+	
+	public void shopping() {
+		Scanner scanner = new Scanner(System.in);
+		cusID++;
+		System.out.println("Welcome to Axcelinno Electronics!");
+		Customer c = new Customer(cusID);
+		shopLoop(c);
 	}
 
 }

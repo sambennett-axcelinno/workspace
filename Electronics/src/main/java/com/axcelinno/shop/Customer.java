@@ -1,5 +1,6 @@
 package com.axcelinno.shop;
 
+import java.math.RoundingMode;
 import java.util.*;
 
 public class Customer {
@@ -45,15 +46,25 @@ public class Customer {
 		p.returnQuantity(1);
 		this.balance -= p.price;
 	}
+	
+	public double round(double value, int places) {
+	    if (places < 0) throw new IllegalArgumentException();
+
+	    long factor = (long) Math.pow(10, places);
+	    value = value * factor;
+	    long tmp = Math.round(value);
+	    return (double) tmp / factor;
+	}
+	
 	public void returnPricing() {
 		if (this.finalAmt == 0.0) {
 			this.finalAmt = this.balance;
 		}
-		double salesTax = finalAmt * 1.075;
-		System.out.println("You have " + cartSize() + " items in  your cart.");
-		System.out.println("You spent: " + this.balance);
-		System.out.println("You saved: " + this.discountAmt);
-		System.out.println("Your spent " + this.finalAmt +  " after discount added.");
+		double salesTax = round(finalAmt * 1.075, 2);
+		System.out.println("You have  bought " + cartSize() + " items.");
+		System.out.println("You spent: " + round(this.balance,  2));
+		System.out.println("You saved: " + round(this.discountAmt,  2));
+		System.out.println("Your spent " + round(this.finalAmt,  2) +  " after discount added.");
 		System.out.println("Aftter sales tax you spent: " + salesTax);
 	}
 

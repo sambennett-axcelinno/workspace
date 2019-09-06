@@ -111,5 +111,10 @@ public class Shop_tests {
 		Shop shop = new Shop();
 		shop.shopLoop(sam);
 	}
+	@Test
+	public void runShop() {
+		Shop shop = new  Shop();
+		shop.shopping();
+	}
 
 }
