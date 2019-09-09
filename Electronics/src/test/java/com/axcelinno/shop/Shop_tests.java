@@ -2,6 +2,8 @@ package com.axcelinno.shop;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
+
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Shop_tests {
@@ -129,13 +131,10 @@ public class Shop_tests {
 		shop.addItem(shop.productList.get(6), bob, 2);
 		assertEquals(148,  shop.productList.get(6).quantity);
 		shop.printAvailability();
-		//shop.store();
-		//assertEquals(147,  shop.productList.get(2).quantity);
-		//assertEquals(298, shop.productList.get(9).quantity);
 	}
 	
 	@Test
-	public void storeTest() {
+	public void storeTest() throws IOException {
 		Shop shop = new Shop();
 		shop.store();
 	}

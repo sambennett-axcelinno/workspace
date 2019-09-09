@@ -1,5 +1,6 @@
 package com.axcelinno.shop;
 
+import java.io.IOException;
 import java.util.*;
 
 public class Shop {
@@ -226,11 +227,12 @@ public class Shop {
 		}
 	}
 	
-	public void store() {
+	public void store() throws IOException {
 		cusID++;
 		System.out.println("Welcome to Axcelinno Electronics!");
 		Customer c = new Customer(cusID);
 		shopLoop(c);
+		c.writeToFile(c.outpString());
 	}
 
 }

@@ -1,5 +1,10 @@
 package com.axcelinno.shop;
 
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.*;
 
 public class Customer {
@@ -47,6 +52,34 @@ public class Customer {
 		p.returnQuantity(1);
 		this.balance -= p.price;
 		//this.finalAmt -= p.price;
+	}
+	
+	public String outpString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Customer ID: ");
+		sb.append(this.ID);
+		sb.append(" Amount in cart: ");
+		sb.append(this.cartSize());
+		sb.append(" Total cost without discount: " + this.balance);
+		sb.append(" Total cost with discount: " + this.finalAmt);
+		sb.append(" Discount amount: " + this.discountAmt);
+		sb.append(" Total after sales tax is: " + this.salesTax + "\n");
+		return sb.toString();
+	}
+	
+	public void writeToFile(String s) throws IOException {
+		try  {
+			BufferedWriter writer = new BufferedWriter(new FileWriter("/Users/samuelbennett/Documents/electronics-write.txt", true));
+			writer.newLine();
+			writer.write(s);
+			writer.close();
+			//PrintWriter out = new PrintWriter("/Users/samuelbennett/Documents/electronics-write.txt");
+			//out.println(s);
+			//out.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public double round(double value, int places) {
