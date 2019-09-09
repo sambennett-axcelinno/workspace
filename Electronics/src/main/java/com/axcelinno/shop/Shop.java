@@ -8,7 +8,7 @@ public class Shop {
 	//Customer customer;
 	double day = 12.6;
 	boolean isHoliday = true;
-	int cusID = 0;
+	//int cusID = 0;
 	HashMap<Integer, Product> productList = new HashMap<Integer, Product>() {
 		{
 			Product laptop = new Product(1,  "laptop", 999.99, 150);
@@ -44,6 +44,8 @@ public class Shop {
 			put(50196955, true);
 		}
 	};
+	
+	HashMap<Integer, Boolean> cusID = new HashMap<Integer, Boolean>();
 	
 	public Shop() {
 		
@@ -228,9 +230,14 @@ public class Shop {
 	}
 	
 	public void store() throws IOException {
-		cusID++;
+		Random random = new Random();
+		int i = random.nextInt((1000-1) + 1) + 1;
+		while (empID.get(i) != null) {
+			i = random.nextInt((1000-1) + 1) + 1;
+		}
+		empID.put(i,  true);
+		Customer c = new Customer(i);
 		System.out.println("Welcome to Axcelinno Electronics!");
-		Customer c = new Customer(cusID);
 		shopLoop(c);
 		c.writeToFile(c.outpString());
 	}

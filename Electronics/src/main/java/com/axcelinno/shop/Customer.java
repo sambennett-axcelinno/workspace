@@ -60,10 +60,10 @@ public class Customer {
 		sb.append(this.ID);
 		sb.append(" Amount in cart: ");
 		sb.append(this.cartSize());
-		sb.append(" Total cost without discount: " + this.balance);
-		sb.append(" Total cost with discount: " + this.finalAmt);
-		sb.append(" Discount amount: " + this.discountAmt);
-		sb.append(" Total after sales tax is: " + this.salesTax + "\n");
+		sb.append(" Total cost without discount: " + round(this.balance,  2));
+		sb.append(" Total cost with discount: " + round(this.finalAmt,  2));
+		sb.append(" Discount amount: " + round(this.discountAmt,  2));
+		sb.append(" Total after sales tax is: " + round(this.salesTax,  2) + "\n");
 		return sb.toString();
 	}
 	
@@ -73,9 +73,6 @@ public class Customer {
 			writer.newLine();
 			writer.write(s);
 			writer.close();
-			//PrintWriter out = new PrintWriter("/Users/samuelbennett/Documents/electronics-write.txt");
-			//out.println(s);
-			//out.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
