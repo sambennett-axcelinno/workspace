@@ -116,12 +116,6 @@ public class Shop_tests {
 	}
 	
 	@Test
-	public void shop_test() {
-		Customer sam = new Customer(1);
-		Shop shop = new Shop();
-		//shop.shopLoop(sam);
-	}
-	@Test
 	public void quantityCarryOver() {
 		Shop shop = new  Shop();
 		Customer sam = new Customer(1);
@@ -129,6 +123,12 @@ public class Shop_tests {
 		assertEquals(148,  shop.productList.get(2).quantity);
 		shop.removeItem(shop.productList.get(2), sam,  1);
 		assertEquals(149, shop.productList.get(2).quantity);
+		Customer bob = new Customer(2);
+		shop.addItem(shop.productList.get(2), bob,  3);
+		assertEquals(146,  shop.productList.get(2).quantity);
+		shop.addItem(shop.productList.get(6), bob, 2);
+		assertEquals(148,  shop.productList.get(6).quantity);
+		shop.printAvailability();
 		//shop.store();
 		//assertEquals(147,  shop.productList.get(2).quantity);
 		//assertEquals(298, shop.productList.get(9).quantity);
@@ -137,6 +137,6 @@ public class Shop_tests {
 	@Test
 	public void storeTest() {
 		Shop shop = new Shop();
-		//shop.store();
+		shop.store();
 	}
 }

@@ -5,10 +5,11 @@ import java.util.*;
 public class Customer {
 	
 	int ID;
+	int items = 0;
 	double balance = 0.0;
 	double discountAmt = 0.0;
 	double finalAmt = 0.0;
-	double salesTax;
+	double salesTax = 0.0;
 	ArrayList<Product> cart = new ArrayList<Product>();
 	boolean jobStatus = false;
 	
@@ -60,7 +61,8 @@ public class Customer {
 	public void returnPricing() {
 		this.finalAmt = this.balance - this.discountAmt;
 		salesTax = round(finalAmt * 1.075, 2);
-		System.out.println("You have bought " + cartSize() + " items.");
+		this.items = cartSize();
+		System.out.println("You have bought " + this.items + " items.");
 		System.out.println("You spent: " + round(this.balance,  2));
 		System.out.println("You saved: " + round(this.discountAmt,  2));
 		System.out.println("Your spent " + round(this.finalAmt,  2) +  " after discount added.");
