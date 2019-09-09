@@ -32,7 +32,18 @@ public class Shop {
 			put(10,  speakers);
 		}
 	};
-	ArrayList<Integer> empID = new ArrayList<Integer>(Arrays.asList(12189554, 54993663, 48723891, 62284457, 32600943, 89237002, 50196955));
+	HashMap<Integer, Boolean> empID = new HashMap<Integer, Boolean>() {
+		{
+			put(12189554,   true);
+			put(54993663, true);
+			put(48723891, true);
+			put(62284457, true);
+			put(32600943,  true);
+			put(89237002,  true);
+			put(50196955,  true);
+		}
+	};
+	//ArrayList<Integer> empID = new ArrayList<Integer>(Arrays.asList(12189554, 54993663, 48723891, 62284457, 32600943, 89237002, 50196955));
 	
 	public Shop() {
 		
@@ -40,7 +51,7 @@ public class Shop {
 	
 	
 	public void showEmp() {
-		for (Integer i : empID) {
+		for (Integer i : empID.keySet()) {
 			System.out.println(i);
 		}
 	}
@@ -114,7 +125,16 @@ public class Shop {
 		}
 	}
 	
-	public boolean isEmployeed(int i, Customer  c) {
+	public void isEmployeed(int i, Customer  c) {
+		if (empID.get(i) == null) {
+			System.out.println("You are not an employee, continue shopping.");
+		}
+		else if (empID.get(i) == true) {
+			c.jobStatus = true;
+			System.out.println("You are an employee, you get a discount!");
+		}
+		
+		/*
 		if (empID.contains(i)) {
 			c.jobStatus = true;
 			System.out.println("You are an employee, you get a discount!");
@@ -125,6 +145,7 @@ public class Shop {
 			System.out.println("You are not an employee, continue shopping.");
 			return false;
 		}
+		*/
 	}
 	
 	public Product convertToProd(String s) {
