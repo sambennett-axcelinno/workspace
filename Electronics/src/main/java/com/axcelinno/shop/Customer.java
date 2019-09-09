@@ -38,14 +38,14 @@ public class Customer {
 		this.cart.add(p);
 		p.changeQuantity(1);
 		this.balance += p.price;
-		this.finalAmt += p.price;
+		//this.finalAmt += p.price;
 	}
 	
 	public void removeFromCart(Product p) {
 		this.cart.remove(p);
 		p.returnQuantity(1);
 		this.balance -= p.price;
-		this.finalAmt -= p.price;
+		//this.finalAmt -= p.price;
 	}
 	
 	public double round(double value, int places) {
@@ -64,7 +64,7 @@ public class Customer {
 		System.out.println("You spent: " + round(this.balance,  2));
 		System.out.println("You saved: " + round(this.discountAmt,  2));
 		System.out.println("Your spent " + round(this.finalAmt,  2) +  " after discount added.");
-		System.out.println("Aftter sales tax you spent: " + salesTax);
+		System.out.println("After sales tax you spent: " + salesTax);
 	}
 
 }

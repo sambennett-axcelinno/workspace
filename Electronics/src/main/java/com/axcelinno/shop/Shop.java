@@ -34,16 +34,15 @@ public class Shop {
 	};
 	HashMap<Integer, Boolean> empID = new HashMap<Integer, Boolean>() {
 		{
-			put(12189554,   true);
+			put(12189554, true);
 			put(54993663, true);
 			put(48723891, true);
 			put(62284457, true);
-			put(32600943,  true);
-			put(89237002,  true);
-			put(50196955,  true);
+			put(32600943, true);
+			put(89237002, true);
+			put(50196955, true);
 		}
 	};
-	//ArrayList<Integer> empID = new ArrayList<Integer>(Arrays.asList(12189554, 54993663, 48723891, 62284457, 32600943, 89237002, 50196955));
 	
 	public Shop() {
 		
@@ -93,13 +92,15 @@ public class Shop {
 		else if (!p.isAvailable()) {
 			System.out.println(p.toString() + " is sold out.  Please check back later once a restock has happened.");
 		}
-		else if (i <= 1 && p.isAvailable()) {
+		else if (i == 1 && p.isAvailable()) {
 			c.addToCart(p);
+			addDiscount(c,  p);
 		}
 		else {
 			if (p.isAvailable()) {
 				for (int it = 0; it < i; it++) {
 					c.addToCart(p);
+					addDiscount(c,  p);
 				}
 			}
 		}
@@ -109,12 +110,14 @@ public class Shop {
 		if (i <= 0) {
 			System.out.println("Please enter a valid number(1 and up)");
 		}
-		else if (i <= 1) {
+		else if (i == 1) {
 			c.removeFromCart(p);
+			removeDiscount(c,  p);
 		}
 		else {
 			for (int it = 0; it < i; it++) {
 				c.removeFromCart(p);
+				removeDiscount(c,  p);
 			}
 		}
 	}
@@ -133,19 +136,6 @@ public class Shop {
 			c.jobStatus = true;
 			System.out.println("You are an employee, you get a discount!");
 		}
-		
-		/*
-		if (empID.contains(i)) {
-			c.jobStatus = true;
-			System.out.println("You are an employee, you get a discount!");
-			return true;
-		}
-		else {
-			c.jobStatus = false;
-			System.out.println("You are not an employee, continue shopping.");
-			return false;
-		}
-		*/
 	}
 	
 	public Product convertToProd(String s) {
@@ -204,9 +194,11 @@ public class Shop {
 			Integer t = Integer.parseInt(quant);
 			Product p = convertToProd(output);
 			addItem(p,  c,  t);
+			/*
 			for (int q = 0; q < t; q++) {
 				addDiscount(c,  p);
 			}
+			*/
 			System.out.println("Current Cart:");
 			c.printCart();
 			System.out.println("Please Enter the product and quantity of that product you want? (format of product quantity.  e when done)");
@@ -229,9 +221,11 @@ public class Shop {
 				Integer t = Integer.parseInt(quant);
 				Product p = convertToProd(output);
 				removeItem(p,  c,  t);
+				/*
 				for (int q = 0; q < t; q++) {
 					removeDiscount(c,  p);
 				}
+				*/
 				System.out.println("Here is your updated cart.");
 				c.printCart();
 				System.out.println("What would you like to remove? (e when done) (format of product quantity)");

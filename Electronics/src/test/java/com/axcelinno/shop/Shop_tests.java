@@ -111,6 +111,7 @@ public class Shop_tests {
 		sam.jobStatus = true;
 		Shop shop = new Shop();
 		shop.addItem(shop.productList.get(3), sam,  1);
+		sam.returnPricing();
 		assertEquals(4100.00,  sam.finalAmt, 1e-8);
 	}
 	
@@ -118,21 +119,24 @@ public class Shop_tests {
 	public void shop_test() {
 		Customer sam = new Customer(1);
 		Shop shop = new Shop();
-		shop.shopLoop(sam);
+		//shop.shopLoop(sam);
 	}
 	@Test
 	public void quantityCarryOver() {
 		Shop shop = new  Shop();
-		shop.store();
+		Customer sam = new Customer(1);
+		shop.addItem(shop.productList.get(2), sam,  2);
 		assertEquals(148,  shop.productList.get(2).quantity);
-		shop.store();
-		assertEquals(147,  shop.productList.get(2).quantity);
-		assertEquals(298, shop.productList.get(9).quantity);
+		shop.removeItem(shop.productList.get(2), sam,  1);
+		assertEquals(149, shop.productList.get(2).quantity);
+		//shop.store();
+		//assertEquals(147,  shop.productList.get(2).quantity);
+		//assertEquals(298, shop.productList.get(9).quantity);
 	}
 	
 	@Test
 	public void storeTest() {
 		Shop shop = new Shop();
-		shop.store();
+		//shop.store();
 	}
 }
