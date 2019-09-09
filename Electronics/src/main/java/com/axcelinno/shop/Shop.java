@@ -8,7 +8,6 @@ public class Shop {
 	//Customer customer;
 	double day = 12.6;
 	boolean isHoliday = true;
-	//int cusID = 0;
 	HashMap<Integer, Product> productList = new HashMap<Integer, Product>() {
 		{
 			Product laptop = new Product(1,  "laptop", 999.99, 150);
@@ -239,7 +238,7 @@ public class Shop {
 		Customer c = new Customer(i);
 		System.out.println("Welcome to Axcelinno Electronics!");
 		shopLoop(c);
-		c.writeToFile(c.outpString());
+		c.writeToFile();
 	}
 
 }

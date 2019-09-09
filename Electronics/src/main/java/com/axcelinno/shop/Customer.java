@@ -1,6 +1,7 @@
 package com.axcelinno.shop;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -67,11 +68,14 @@ public class Customer {
 		return sb.toString();
 	}
 	
-	public void writeToFile(String s) throws IOException {
+	public void writeToFile() throws IOException {
 		try  {
-			BufferedWriter writer = new BufferedWriter(new FileWriter("/Users/samuelbennett/Documents/electronics-write.txt", true));
-			writer.newLine();
-			writer.write(s);
+			//BufferedWriter writer = new BufferedWriter(new FileWriter("/Users/samuelbennett/Documents/electronics-write.txt", true));
+			PrintWriter writer = new PrintWriter(new FileWriter("/Users/samuelbennett/Documents/store.csv", true));
+			//writer.newLine();
+			StringBuilder sBuilder = new StringBuilder();
+			sBuilder.append(this.ID + "," + this.cartSize() + "," + round(this.balance,  2) + "," + round(this.finalAmt,  2) + "," + round(this.discountAmt, 2) + "," + round(this.salesTax,  2) + "\n");
+			writer.write(sBuilder.toString());
 			writer.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
