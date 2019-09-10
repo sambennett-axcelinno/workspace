@@ -5,7 +5,7 @@ public class Product {
 	int ID;
 	String name;
 	double price = 0.0;
-	int  quantity;
+	int quantity = 0;
 	
 	public Product(int ID, String name, double price, int quantity) {
 		this.ID = ID;

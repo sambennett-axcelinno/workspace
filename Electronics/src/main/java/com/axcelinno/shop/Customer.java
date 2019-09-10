@@ -1,7 +1,5 @@
 package com.axcelinno.shop;
 
-import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -85,7 +83,6 @@ public class Customer {
 	
 	public double round(double value, int places) {
 	    if (places < 0) throw new IllegalArgumentException();
-
 	    long factor = (long) Math.pow(10, places);
 	    value = value * factor;
 	    long tmp = Math.round(value);
@@ -99,7 +96,7 @@ public class Customer {
 		System.out.println("You have bought " + this.items + " items.");
 		System.out.println("You spent: " + round(this.balance,  2));
 		System.out.println("You saved: " + round(this.discountAmt,  2));
-		System.out.println("Your spent " + round(this.finalAmt,  2) +  " after discount added.");
+		System.out.println("After discount you spent: " + round(this.finalAmt,  2));
 		System.out.println("After sales tax you spent: " + salesTax);
 	}
 

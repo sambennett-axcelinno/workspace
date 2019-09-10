@@ -7,7 +7,7 @@ public class Shop {
 	
 	//Customer customer;
 	double day = 12.6;
-	boolean isHoliday = true;
+	boolean isHoliday = false;
 	HashMap<Integer, Product> productList = new HashMap<Integer, Product>() {
 		{
 			Product laptop = new Product(1,  "laptop", 999.99, 150);
@@ -99,10 +99,13 @@ public class Shop {
 			addDiscount(c,  p);
 		}
 		else {
-			if (p.isAvailable()) {
-				for (int it = 0; it < i; it++) {
+			for (int it = 0; it < i; it++) {
+				if (p.isAvailable()) {
 					c.addToCart(p);
 					addDiscount(c,  p);
+				}
+				else {
+					System.out.println(p.toString() + " is sold out.  Please check back later once a restock has happened.");
 				}
 			}
 		}
@@ -127,6 +130,12 @@ public class Shop {
 	public void printAvailability() {
 		for (Integer i : productList.keySet()) {
 			System.out.println(productList.get(i).toString() + " has " + productList.get(i).quantity + " available" + "\n");
+		}
+	}
+	
+	public void printProducts() {
+		for (Integer i : productList.keySet()) {
+			System.out.println(productList.get(i).toString() + " costs " + productList.get(i).price);
 		}
 	}
 	
@@ -186,7 +195,8 @@ public class Shop {
 			Integer i = Integer.parseInt(id);
 			isEmployeed(i,  c);
 		}
-		System.out.println("Please Enter the product and quantity of that product you want? (format of product quantity)");
+		printProducts();
+		System.out.println("\nPlease Enter the product and quantity of that product you want? (format of product quantity)");
 		while (!output.equals("e") && s.hasNext()) {
 			output = s.next();
 			if (output.equals("e")) {
