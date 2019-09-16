@@ -18,6 +18,7 @@ public class Customer {
 	boolean jobStatus = false;
 	boolean checkout = false;
 	double discountAmount = 0.0;
+	int test;
 	
 	public double getDiscountAmount() {
 		return discountAmount;
