@@ -6,7 +6,32 @@ public class Product {
 	String name;
 	double price = 0.0;
 	int quantity = 0;
+	boolean isAvailable = true;
 	
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+	public void setID(int iD) {
+		ID = iD;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public void setAvailable(boolean isAvailable) {
+		this.isAvailable = isAvailable;
+	}
+
 	public Product(int ID, String name, double price, int quantity) {
 		this.ID = ID;
 		this.name = name;

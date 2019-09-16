@@ -9,6 +9,11 @@ public class Shop {
 	double day = 12.6;
 	boolean isHoliday = false;
 	HashMap<Integer, Product> productList = new HashMap<Integer, Product>() {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		{
 			Product laptop = new Product(1,  "laptop", 999.99, 150);
 			put(1,  laptop);
@@ -33,6 +38,11 @@ public class Shop {
 		}
 	};
 	HashMap<Integer, Boolean> empID = new HashMap<Integer, Boolean>() {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		{
 			put(12189554, true);
 			put(54993663, true);

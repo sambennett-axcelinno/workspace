@@ -16,7 +16,85 @@ public class Customer {
 	double salesTax = 0.0;
 	ArrayList<Product> cart = new ArrayList<Product>();
 	boolean jobStatus = false;
+	boolean checkout = false;
+	double discountAmount = 0.0;
 	
+	public double getDiscountAmount() {
+		return discountAmount;
+	}
+
+	public void setDiscountAmount(double discountAmount) {
+		this.discountAmount = discountAmount;
+	}
+
+	public int getID() {
+		return ID;
+	}
+
+	public void setID(int iD) {
+		ID = iD;
+	}
+
+	public int getItems() {
+		return items;
+	}
+
+	public void setItems(int items) {
+		this.items = items;
+	}
+
+	public double getDiscountAmt() {
+		return discountAmt;
+	}
+
+	public void setDiscountAmt(double discountAmt) {
+		this.discountAmt = discountAmt;
+	}
+
+	public double getFinalAmt() {
+		return finalAmt;
+	}
+
+	public void setFinalAmt(double finalAmt) {
+		this.finalAmt = finalAmt;
+	}
+
+	public double getSalesTax() {
+		return salesTax;
+	}
+
+	public void setSalesTax(double salesTax) {
+		this.salesTax = salesTax;
+	}
+
+	public ArrayList<Product> getCart() {
+		return cart;
+	}
+
+	public void setCart(ArrayList<Product> cart) {
+		this.cart = cart;
+	}
+
+	public boolean isJobStatus() {
+		return jobStatus;
+	}
+
+	public void setJobStatus(boolean jobStatus) {
+		this.jobStatus = jobStatus;
+	}
+
+	public boolean isCheckout() {
+		return checkout;
+	}
+
+	public void setCheckout(boolean checkout) {
+		this.checkout = checkout;
+	}
+
+	public void setBalance(double balance) {
+		this.balance = balance;
+	}
+
 	public Customer(int ID) {
 		this.ID = ID;
 	}
