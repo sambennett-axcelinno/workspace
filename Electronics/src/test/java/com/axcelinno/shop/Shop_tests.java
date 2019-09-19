@@ -10,7 +10,7 @@ public class Shop_tests {
 
 	@Test
 	public void product_test() {
-		Product laptop = new Product(1, "laptop", 999.99, 150);
+		Product laptop = new Product(1, "laptop", 999.99, 150, true);
 		assertEquals(1, laptop.ID);
 		assertEquals("laptop", laptop.name);
 		assertEquals(999.99, laptop.price, 1e-8);
@@ -23,9 +23,9 @@ public class Shop_tests {
 	
 	@Test
 	public void customer_test() {
-		Customer customer = new Customer(1);
-		Product laptop = new Product(1, "laptop", 999.99, 150);
-		Product tablet = new Product(2,  "tablet", 300.00,150);
+		Customers customer = new Customers(1);
+		Product laptop = new Product(1, "laptop", 999.99, 150, true);
+		Product tablet = new Product(2,  "tablet", 300.00,150, true);
 		assertEquals(1,  customer.ID);
 		assertEquals(0.0, customer.balance, 1e-8);
 		assertFalse(customer.jobStatus);
@@ -46,7 +46,7 @@ public class Shop_tests {
 	
 	@Test
 	public void add_and_remove_items() {
-		Customer sam = new Customer(1);
+		Customers sam = new Customers(1);
 		Shop shop = new Shop();
 		shop.addItem(shop.productList.get(2), sam, 2);
 		//sam.printCart();
@@ -73,8 +73,8 @@ public class Shop_tests {
 	@Test
 	public void employee_check() {
 		int emp = 89237002;
-		Customer sam = new Customer(1);
-		Customer eric = new Customer(2);
+		Customers sam = new Customers(1);
+		Customers eric = new Customers(2);
 		Shop shop = new Shop();
 		shop.isEmployeed(emp, sam);
 		assertTrue(sam.jobStatus);
@@ -84,7 +84,7 @@ public class Shop_tests {
 	
 	@Test
 	public void discountCheck() {
-		Customer sam = new Customer(1);
+		Customers sam = new Customers(1);
 		Shop shop = new Shop();
 		assertEquals(12.6,  shop.day, 1e-8);
 		sam.jobStatus = true;
@@ -93,7 +93,7 @@ public class Shop_tests {
 		assertEquals(999.99, sam.balance, 1e-8);
 		assertEquals(299.997,  sam.discountAmt, 1e-8);
 		assertEquals(699.993,  sam.finalAmt, 1e-8);
-		Customer bob = new Customer(2);
+		Customers bob = new Customers(2);
 		shop.isHoliday = true;
 		bob.addToCart(shop.productList.get(4));
 		shop.addDiscount(bob,  shop.productList.get(4));
@@ -109,7 +109,7 @@ public class Shop_tests {
 	
 	@Test
 	public void tvEmployee() {
-		Customer sam = new Customer(1);
+		Customers sam = new Customers(1);
 		sam.jobStatus = true;
 		Shop shop = new Shop();
 		shop.addItem(shop.productList.get(3), sam,  1);
@@ -120,12 +120,12 @@ public class Shop_tests {
 	@Test
 	public void quantityCarryOver() {
 		Shop shop = new  Shop();
-		Customer sam = new Customer(1);
+		Customers sam = new Customers(1);
 		shop.addItem(shop.productList.get(2), sam,  2);
 		assertEquals(148,  shop.productList.get(2).quantity);
 		shop.removeItem(shop.productList.get(2), sam,  1);
 		assertEquals(149, shop.productList.get(2).quantity);
-		Customer bob = new Customer(2);
+		Customers bob = new Customers(2);
 		shop.addItem(shop.productList.get(2), bob,  3);
 		assertEquals(146,  shop.productList.get(2).quantity);
 		shop.addItem(shop.productList.get(6), bob, 2);

@@ -8,10 +8,7 @@ public class Shop {
 	//Customer customer;
 	double day = 12.6;
 	boolean isHoliday = false;
-	HashMap<Integer, Product> productList = new HashMap<Integer, Product>() {
-		/**
-		 * 
-		 */
+	HashMap<Integer, Product> productList = new HashMap<Integer, Product>() /*{
 		private static final long serialVersionUID = 1L;
 
 		{
@@ -36,7 +33,16 @@ public class Shop {
 			Product speakers = new Product(10,  "speakers", 189.00, 100);
 			put(10,  speakers);
 		}
-	};
+	}*/;
+	public boolean isHoliday() {
+		return isHoliday;
+	}
+
+
+	public void setHoliday(boolean isHoliday) {
+		this.isHoliday = isHoliday;
+	}
+
 	HashMap<Integer, Boolean> empID = new HashMap<Integer, Boolean>() {
 		/**
 		 * 
@@ -60,6 +66,10 @@ public class Shop {
 		
 	}
 	
+	public Shop(boolean isHoliday) {
+		this.isHoliday = isHoliday;
+	}
+	
 	
 	public void showEmp() {
 		for (Integer i : empID.keySet()) {
@@ -67,7 +77,7 @@ public class Shop {
 		}
 	}
 
-	public void addDiscount(Customer c, Product p) {
+	public void addDiscount(Customers c, Product p) {
 		if (c.jobStatus && p.ID != 3) {
 			double dis = p.price * 0.3;
 			double newPrice = p.price * 0.7;
@@ -82,7 +92,7 @@ public class Shop {
 		}
 	}
 	
-	public void removeDiscount(Customer c, Product p) {
+	public void removeDiscount(Customers c, Product p) {
 		if (c.jobStatus && p.ID != 3) {
 			double dis = p.price * 0.3;
 			double newPrice = p.price * 0.7;
@@ -97,7 +107,7 @@ public class Shop {
 		}
 	}
 	
-	public void addItem(Product p, Customer c, int i) {
+	public void addItem(Product p, Customers c, int i) {
 		if (i <= 0) {
 			System.out.println("Please enter a valid number(1 and up)");
 		}
@@ -121,7 +131,7 @@ public class Shop {
 		}
 	}
 	
-	public void removeItem(Product p, Customer c, int i) {
+	public void removeItem(Product p, Customers c, int i) {
 		if (i <= 0) {
 			System.out.println("Please enter a valid number(1 and up)");
 		}
@@ -149,7 +159,7 @@ public class Shop {
 		}
 	}
 	
-	public void isEmployeed(int i, Customer  c) {
+	public void isEmployeed(int i, Customers  c) {
 		if (empID.get(i) == null) {
 			System.out.println("You are not an employee, continue shopping.");
 		}
@@ -160,7 +170,7 @@ public class Shop {
 	}
 	
 	public Product convertToProd(String s) {
-		Product retProd = new Product(0,  "dummy", 0, 0);
+		Product retProd = new Product(0,  "dummy", 0, 0, true);
 		if (s.equals("laptop") || s.equals("Laptop")) {
 			return productList.get(1);
 		}
@@ -195,7 +205,7 @@ public class Shop {
 	}
 	
 	
-	public void shopLoop(Customer c) {
+	public void shopLoop(Customers c) {
 		Scanner s = new Scanner(System.in);
 		System.out.println("Are you an employee?(yes or no)");
 		String output = s.nextLine();
@@ -255,7 +265,7 @@ public class Shop {
 			i = random.nextInt((1000-1) + 1) + 1;
 		}
 		empID.put(i,  true);
-		Customer c = new Customer(i);
+		Customers c = new Customers(i);
 		System.out.println("Welcome to Axcelinno Electronics!");
 		shopLoop(c);
 		c.writeToFile();

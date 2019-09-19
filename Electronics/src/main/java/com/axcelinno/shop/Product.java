@@ -6,8 +6,17 @@ public class Product {
 	String name;
 	double price = 0.0;
 	int quantity = 0;
-	boolean isAvailable = true;
+	boolean Available = true;
+	boolean purchase = false;
 	
+	public boolean isPurchase() {
+		return purchase;
+	}
+
+	public void setPurchase(boolean purchase) {
+		this.purchase = purchase;
+	}
+
 	public int getQuantity() {
 		return quantity;
 	}
@@ -29,14 +38,15 @@ public class Product {
 	}
 
 	public void setAvailable(boolean isAvailable) {
-		this.isAvailable = isAvailable;
+		this.Available = Available;
 	}
 
-	public Product(int ID, String name, double price, int quantity) {
+	public Product(int ID, String name, double price, int quantity, boolean Available) {
 		this.ID = ID;
 		this.name = name;
 		this.price = price;
 		this.quantity = quantity;
+		this.Available = Available;
 	}
 	
 	public double getPrice() {

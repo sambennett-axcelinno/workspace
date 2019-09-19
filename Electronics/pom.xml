@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.axcelinno.shop</groupId>
   <artifactId>Electronics</artifactId>
-  <version>0.0.4-SNAPSHOT</version>
+  <version>0.0.9-SNAPSHOT</version>
   <description>Electronic shop project</description>
   
   <dependencies>
@@ -12,7 +12,31 @@
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+  		<groupId>org.kie.server</groupId>
+  		<artifactId>kie-server-client</artifactId>
+  		<version>7.26.0.Final</version>
+  		<scope>compile</scope>
+	</dependency>
+	<dependency>
+		<groupId>org.kie</groupId>
+		<artifactId>kie-ci</artifactId>
+		<version>7.26.0.Final</version>
+	</dependency>
+	<dependency>
+  		<groupId>org.drools</groupId>
+  		<artifactId>drools-compiler</artifactId>
+  		<scope>runtime</scope>
+  		<version>7.26.0.Final</version>
+	</dependency>
+	<dependency>
+  		<groupId>ch.qos.logback</groupId>
+  		<artifactId>logback-classic</artifactId>
+  		<version>1.2.3</version>
+  		<scope>test</scope>
+	</dependency>
 	</dependencies>
+	
 	<!-- Used to install the compiler -->
 	<build>
 		<plugins>

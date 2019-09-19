@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.*;
 
-public class Customer {
+public class Customers {
 	
 	int ID;
 	int items = 0;
@@ -19,7 +19,28 @@ public class Customer {
 	boolean checkout = false;
 	double discountAmount = 0.0;
 	int test;
+	int employeeID;
 	
+	public Customers (int id) {
+		this.ID = id;
+	}
+	
+	public int getEmployeeID() {
+		return employeeID;
+	}
+
+	public void setEmployeeID(int employeeID) {
+		this.employeeID = employeeID;
+	}
+
+	public int getTest() {
+		return test;
+	}
+
+	public void setTest(int test) {
+		this.test = test;
+	}
+
 	public double getDiscountAmount() {
 		return discountAmount;
 	}
@@ -96,8 +117,19 @@ public class Customer {
 		this.balance = balance;
 	}
 
-	public Customer(int ID) {
+	public Customers(int ID, int items, double balance,
+			double discountAmt, boolean jobStatus,
+			ArrayList<Product> cart, int employeeID,
+			double discountAmount, boolean checkout) {
 		this.ID = ID;
+		this.items = items;
+		this.balance = balance;
+		this.discountAmt = discountAmt;
+		this.jobStatus = jobStatus;
+		this.cart = cart;
+		this.employeeID = employeeID;
+		this.discountAmount = discountAmount;
+		this.checkout = checkout;
 	}
 	
 	public double getBalance() {
