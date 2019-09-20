@@ -4,9 +4,7 @@ import java.io.IOException;
 import java.util.*;
 
 public class Shop {
-	
-	//Customer customer;
-	double day = 12.6;
+
 	boolean isHoliday = false;
 	HashMap<Integer, Product> productList = new HashMap<Integer, Product>() /*{
 		private static final long serialVersionUID = 1L;
@@ -34,19 +32,9 @@ public class Shop {
 			put(10,  speakers);
 		}
 	}*/;
-	public boolean isHoliday() {
-		return isHoliday;
-	}
-
-
-	public void setHoliday(boolean isHoliday) {
-		this.isHoliday = isHoliday;
-	}
-
-	HashMap<Integer, Boolean> empID = new HashMap<Integer, Boolean>() {
-		/**
-		 * 
-		 */
+	
+	HashMap<Integer, Boolean> empID = new HashMap<Integer, Boolean>() /*{
+		
 		private static final long serialVersionUID = 1L;
 
 		{
@@ -58,18 +46,42 @@ public class Shop {
 			put(89237002, true);
 			put(50196955, true);
 		}
-	};
-	
-	HashMap<Integer, Boolean> cusID = new HashMap<Integer, Boolean>();
+	}*/;
 	
 	public Shop() {
 		
 	}
 	
-	public Shop(boolean isHoliday) {
+	public Shop(boolean isHoliday, HashMap<Integer, Product> productList, HashMap<Integer, Boolean> empID) {
 		this.isHoliday = isHoliday;
+		this.productList = productList;
+		this.empID = empID;
 	}
 	
+	public HashMap<Integer, Product> getProductList() {
+		return productList;
+	}
+
+	public void setProductList(HashMap<Integer, Product> productList) {
+		this.productList = productList;
+	}
+
+	public HashMap<Integer, Boolean> getEmpID() {
+		return empID;
+	}
+
+	public void setEmpID(HashMap<Integer, Boolean> empID) {
+		this.empID = empID;
+	}
+	
+	public boolean isHoliday() {
+		return isHoliday;
+	}
+
+
+	public void setHoliday(boolean isHoliday) {
+		this.isHoliday = isHoliday;
+	}	
 	
 	public void showEmp() {
 		for (Integer i : empID.keySet()) {

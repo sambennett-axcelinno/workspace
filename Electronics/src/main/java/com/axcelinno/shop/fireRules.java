@@ -14,7 +14,7 @@ public class fireRules {
 	
 	public static void main(String[] args) {
 		String groupID = "com.myspace";
-		String artifactId = "shop";
+		String artifactId = "shop-new";
 		String version = "1.0.0-SNAPSHOT";
 		
 		KieServices ks = KieServices.Factory.get();
@@ -32,7 +32,7 @@ public class fireRules {
 	
 	public void runWithData(Customers c, Product p, Shop s) {
 		String groupID = "com.myspace";
-		String artifactId = "shop";
+		String artifactId = "shop-new";
 		String version = "1.0.0-SNAPSHOT";
 		
 		KieServices ks = KieServices.Factory.get();
@@ -45,7 +45,8 @@ public class fireRules {
 		factHandle = kSession.insert(c);
 		factHandle = kSession.insert(s);
 		
-		kSession.fireAllRules();
+		int num = kSession.fireAllRules();
+		System.out.println(num);
 	}
 	
 

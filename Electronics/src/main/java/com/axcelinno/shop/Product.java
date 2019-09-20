@@ -7,14 +7,17 @@ public class Product {
 	double price = 0.0;
 	int quantity = 0;
 	boolean Available = true;
-	boolean purchase = false;
 	
-	public boolean isPurchase() {
-		return purchase;
+	public  Product() {
+		
 	}
-
-	public void setPurchase(boolean purchase) {
-		this.purchase = purchase;
+	
+	public Product(int ID, String name, double price, int quantity, boolean Available) {
+		this.ID = ID;
+		this.name = name;
+		this.price = price;
+		this.quantity = quantity;
+		this.Available = Available;
 	}
 
 	public int getQuantity() {
@@ -38,14 +41,6 @@ public class Product {
 	}
 
 	public void setAvailable(boolean isAvailable) {
-		this.Available = Available;
-	}
-
-	public Product(int ID, String name, double price, int quantity, boolean Available) {
-		this.ID = ID;
-		this.name = name;
-		this.price = price;
-		this.quantity = quantity;
 		this.Available = Available;
 	}
 	

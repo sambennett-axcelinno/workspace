@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.axcelinno.shop</groupId>
   <artifactId>Electronics</artifactId>
-  <version>0.0.9-SNAPSHOT</version>
+  <version>0.0.11-SNAPSHOT</version>
   <description>Electronic shop project</description>
   
   <dependencies>
@@ -13,28 +13,10 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-  		<groupId>org.kie.server</groupId>
-  		<artifactId>kie-server-client</artifactId>
-  		<version>7.26.0.Final</version>
-  		<scope>compile</scope>
-	</dependency>
-	<dependency>
-		<groupId>org.kie</groupId>
-		<artifactId>kie-ci</artifactId>
-		<version>7.26.0.Final</version>
-	</dependency>
-	<dependency>
-  		<groupId>org.drools</groupId>
-  		<artifactId>drools-compiler</artifactId>
-  		<scope>runtime</scope>
-  		<version>7.26.0.Final</version>
-	</dependency>
-	<dependency>
-  		<groupId>ch.qos.logback</groupId>
-  		<artifactId>logback-classic</artifactId>
-  		<version>1.2.3</version>
-  		<scope>test</scope>
-	</dependency>
+    		<groupId>org.kie</groupId>
+    		<artifactId>kie-ci</artifactId>
+    		<version>7.26.0.Final</version>
+		</dependency>
 	</dependencies>
 	
 	<!-- Used to install the compiler -->
@@ -49,6 +31,12 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.kie</groupId>
+				<artifactId>kie-maven-plugin</artifactId>
+				<version>7.26.0.Final</version>
+				<extensions>true</extensions>
+		</plugin>
 		</plugins>
 	</build>
 </project>

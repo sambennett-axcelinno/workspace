@@ -86,7 +86,6 @@ public class Shop_tests {
 	public void discountCheck() {
 		Customers sam = new Customers(1);
 		Shop shop = new Shop();
-		assertEquals(12.6,  shop.day, 1e-8);
 		sam.jobStatus = true;
 		sam.addToCart(shop.productList.get(1));
 		shop.addDiscount(sam, shop.productList.get(1));

@@ -21,6 +21,25 @@ public class Customers {
 	int test;
 	int employeeID;
 	
+	public Customers() {
+		
+	}
+	
+	public Customers(int ID, int items, double balance,
+			double discountAmt, boolean jobStatus,
+			ArrayList<Product> cart, int employeeID,
+			double discountAmount, boolean checkout) {
+		this.ID = ID;
+		this.items = items;
+		this.balance = balance;
+		this.discountAmt = discountAmt;
+		this.jobStatus = jobStatus;
+		this.cart = cart;
+		this.employeeID = employeeID;
+		this.discountAmount = discountAmount;
+		this.checkout = checkout;
+	}
+	
 	public Customers (int id) {
 		this.ID = id;
 	}
@@ -115,21 +134,6 @@ public class Customers {
 
 	public void setBalance(double balance) {
 		this.balance = balance;
-	}
-
-	public Customers(int ID, int items, double balance,
-			double discountAmt, boolean jobStatus,
-			ArrayList<Product> cart, int employeeID,
-			double discountAmount, boolean checkout) {
-		this.ID = ID;
-		this.items = items;
-		this.balance = balance;
-		this.discountAmt = discountAmt;
-		this.jobStatus = jobStatus;
-		this.cart = cart;
-		this.employeeID = employeeID;
-		this.discountAmount = discountAmount;
-		this.checkout = checkout;
 	}
 	
 	public double getBalance() {
