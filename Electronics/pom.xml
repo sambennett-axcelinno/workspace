@@ -17,6 +17,17 @@
     		<artifactId>kie-ci</artifactId>
     		<version>7.26.0.Final</version>
 		</dependency>
+		<dependency>
+    		<groupId>org.jbpm</groupId>
+    		<artifactId>jbpm-bpmn2</artifactId>
+    		<version>7.26.0.Final</version>
+		</dependency>
+		<dependency>
+    		<groupId>org.jbpm</groupId>
+    		<artifactId>jbpm-flow-builder</artifactId>
+    		<version>7.26.0.Final</version>
+		</dependency>
+		
 	</dependencies>
 	
 	<!-- Used to install the compiler -->

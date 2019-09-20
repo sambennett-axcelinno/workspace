@@ -50,6 +50,17 @@ public class rulesTest {
 		fRules.runWithData(customers,  product,  shop);
 		assertEquals(400,  customers.getBalance(), 1e-8);
 	}
-
-
+	
+	@Test
+	public void processTest() {
+		Customers customers = new Customers(1, 1, 400.00, 0.0, true, null, 62284457, 0.0, true);
+		Product product = new Product(1,  "laptop", 150.00, 100, true);
+		Shop shop = new Shop(false, null, null);
+		fireRules fRules = new fireRules();
+		fRules.runProcess(customers,  product,  shop);
+		assertEquals(99,  product.getQuantity());
+		assertEquals(430.00,  customers.getBalance(), 1e-8);
+		assertTrue(customers.isJobStatus());
+		assertEquals(105.0,  product.getPrice(), 1e-8);
+	}
 }
