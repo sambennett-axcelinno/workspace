@@ -21,7 +21,7 @@ public class fireRules {
 		
 		String groupID = "com.myspace";
 		String artifactId = "shop-new";
-		String version = "1.0.10-SNAPSHOT";
+		String version = "1.0.13-SNAPSHOT";
 		
 		Map<String, Object> params = new HashMap<String, Object>();
 		Customers customers = new Customers(1, 1, 400.00, 0.0, false, null, 62284457, 0.0, true);
@@ -41,7 +41,6 @@ public class fireRules {
 		System.out.println(processInstance.getProcessName());
 		
 		System.out.println(customers.isJobStatus());
-		System.out.println(customers.balance);
 		
 		System.out.println("passes");
 		
@@ -68,7 +67,9 @@ public class fireRules {
 	public void runProcess(Customers c, Product p, Shop s) {
 		String groupID = "com.myspace";
 		String artifactId = "shop-new";
-		String version = "1.0.10-SNAPSHOT";
+		String version = "1.0.13-SNAPSHOT";
+		/*1.0.10-SNAPSHOT for version that worked*/
+		/*now 1.0.13 works as expected*/
 		
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("c", c);
