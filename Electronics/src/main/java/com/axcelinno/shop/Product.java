@@ -7,6 +7,7 @@ public class Product {
 	double price = 0.0;
 	int quantity = 0;
 	boolean Available = true;
+	boolean add = false;
 	
 	public  Product() {
 		
@@ -18,6 +19,14 @@ public class Product {
 		this.price = price;
 		this.quantity = quantity;
 		this.Available = Available;
+	}
+
+	public boolean isAdd() {
+		return add;
+	}
+
+	public void setAdd(boolean add) {
+		this.add = add;
 	}
 
 	public int getQuantity() {

@@ -140,6 +140,16 @@ public class Customers {
 		return this.balance;
 	}
 	
+	public void cartAdd(Product p) {
+		if (cart != null) {
+			cart.add(p);
+		}
+		else {
+			cart = new ArrayList<Product>();
+			cart.add(p);
+		}
+	}
+	
 	public void printCart() {
 		for (Product p : cart) {
 			System.out.println(p.getName());
@@ -151,7 +161,10 @@ public class Customers {
 	}
 	
 	public int cartSize() {
-		return this.cart.size();
+		if (cart != null) {
+			return this.cart.size();
+		}
+		return -1;
 	}
 	
 	public void addToCart(Product p) {
