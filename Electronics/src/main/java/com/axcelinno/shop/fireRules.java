@@ -25,7 +25,7 @@ public class fireRules {
 		/*1.0.13 is last version before  testProcess with gateway testing*/
 		String groupID = "com.myspace";
 		String artifactId = "shop-new";
-		String version = "1.0.19-SNAPSHOT";
+		String version = "1.0.18-SNAPSHOT";
 		/*1.0.18 for working list thing*/
 		
 		Map<String, Object> params = new HashMap<String, Object>();
@@ -34,14 +34,21 @@ public class fireRules {
 		product.add = true;
 		Product product2 = new Product(2,  "TV", 550.00, 100, true);
 		product2.add = true;
+		Product product3 = new Product(3,  "PC", 650.00, 100, true);
+		product3.add = true;
 		Shop shop = new Shop(false, null, null);
 		listOfProd lProd = new listOfProd();
-		lProd.addTo(product);
-		lProd.addTo(product2);
+		//lProd.addTo(product);
+		//lProd.addTo(product2);
+		//lProd.addTo(product3);
+		List<Product> list = new ArrayList<Product>();
+		list.add(product);
+		list.add(product2);
+		list.add(product3);
 		params.put("c", customers);
 		params.put("p",  product);
-		params.put("l",  lProd);
-		
+		params.put("l",  list);
+		System.out.println(lProd.prodListSize());
 		
 		KieServices ks = KieServices.Factory.get();
 		ReleaseId releaseId = ks.newReleaseId(groupID, artifactId, version);
