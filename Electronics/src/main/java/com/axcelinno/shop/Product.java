@@ -7,7 +7,7 @@ public class Product {
 	double price = 0.0;
 	int quantity = 0;
 	boolean Available = true;
-	boolean add = false;
+	boolean add;
 	
 	public  Product() {
 		

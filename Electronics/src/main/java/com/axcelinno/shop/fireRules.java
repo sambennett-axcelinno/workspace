@@ -23,10 +23,17 @@ public class fireRules {
 	
 	public static void main(String[] args) {
 		/*1.0.13 is last version before  testProcess with gateway testing*/
+		/*
 		String groupID = "com.myspace";
 		String artifactId = "shop-new";
 		String version = "1.0.18-SNAPSHOT";
+		*/
 		/*1.0.18 for working list thing*/
+		
+		/*this is my new  GAV for rest*/
+		String groupID = "com.myspace";
+		String artifactId = "list-rest";
+		String version = "1.0.0-SNAPSHOT";
 		
 		Map<String, Object> params = new HashMap<String, Object>();
 		Customers customers = new Customers(1, 1, 400.00, 0.0, false, null, 62284457, 0.0, true);
@@ -37,32 +44,23 @@ public class fireRules {
 		Product product3 = new Product(3,  "PC", 650.00, 100, true);
 		product3.add = true;
 		Shop shop = new Shop(false, null, null);
-		listOfProd lProd = new listOfProd();
-		//lProd.addTo(product);
-		//lProd.addTo(product2);
-		//lProd.addTo(product3);
 		List<Product> list = new ArrayList<Product>();
 		list.add(product);
 		list.add(product2);
 		list.add(product3);
 		params.put("c", customers);
 		params.put("p",  product);
-		params.put("l",  list);
-		System.out.println(lProd.prodListSize());
+		params.put("p1",  product2);
 		
 		KieServices ks = KieServices.Factory.get();
 		ReleaseId releaseId = ks.newReleaseId(groupID, artifactId, version);
 		KieContainer kContainer = ks.newKieContainer(releaseId);
 		KieSession kSession = kContainer.newKieSession();
 		KieRuntime kRuntime = (KieRuntime) kSession;
-		ProcessInstance processInstance = kRuntime.startProcess("shop-new.addProcess", params);
+		ProcessInstance processInstance = kRuntime.startProcess("list-rest.restProcess", params);
 		System.out.println(processInstance.getProcessName());
 		
 		System.out.println(customers.cartSize());
-		System.out.println(lProd.prodListSize());
-		System.out.println(lProd.getProdList().get(0).toString());
-		System.out.println(lProd.getProdList().get(1).toString());
-		System.out.println(lProd.getProdList().get(2).toString());
 		
 		System.out.println("passes");
 		
