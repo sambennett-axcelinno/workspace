@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.axcelinno.shop</groupId>
   <artifactId>Electronics</artifactId>
-  <version>0.0.13-SNAPSHOT</version>
+  <version>0.0.15-SNAPSHOT</version>
   <description>Electronic shop project</description>
   
   <dependencies>
@@ -27,6 +27,12 @@
     		<artifactId>jbpm-flow-builder</artifactId>
     		<version>7.26.0.Final</version>
 		</dependency>
+		
+		<dependency>
+		    <groupId>org.kie</groupId>
+		    <artifactId>kie-api</artifactId>
+		    <version>7.26.0.Final</version>
+		</dependency>
 		<dependency>
 		    <groupId>org.jbpm</groupId>
 		    <artifactId>jbpm-flow</artifactId>
@@ -35,25 +41,25 @@
 		 
 		<dependency>
 		    <groupId>org.jbpm</groupId>
+		    <artifactId>jbpm-workitems-rest</artifactId>
+		    <version>7.27.0.Final</version>
+		</dependency>
+		 
+		<dependency>
+		    <groupId>org.jbpm</groupId>
 		    <artifactId>jbpm-workitems</artifactId>
 		    <version>7.27.0.Final</version>
 		    <type>pom</type>
 		</dependency>
-		
-		<dependency>
-		    <groupId>org.jbpm</groupId>
-		    <artifactId>jbpm-workitems-rest</artifactId>
-		    <version>7.27.0.Final</version>
-		</dependency>
-		
-		<!-- https://mvnrepository.com/artifact/org.jbpm/jbpm-workitems-core -->
+		<!-- adding and removing dependency below changes the error -->
+		<!-- 
 		<dependency>
 		    <groupId>org.jbpm</groupId>
 		    <artifactId>jbpm-workitems-core</artifactId>
 		    <version>7.27.0.Final</version>
 		    <scope>provided</scope>
 		</dependency>
-		
+		-->
 	</dependencies>
 	
 	<!-- Used to install the compiler -->

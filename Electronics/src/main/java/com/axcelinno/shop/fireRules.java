@@ -18,6 +18,7 @@ import org.kie.api.runtime.process.WorkItem;
 import org.kie.api.runtime.process.WorkItemHandler;
 import org.kie.api.runtime.process.WorkItemManager;
 import org.kie.api.runtime.rule.FactHandle;
+import org.drools.core.util.Drools;
 import org.jbpm.process.workitem.*;
 import org.jbpm.process.workitem.rest.RESTWorkItemHandler;
 import org.jbpm.workflow.instance.WorkflowProcessInstance;
@@ -41,8 +42,8 @@ public class fireRules {
 			
 			/*this is my new  GAV for rest*/
 			String groupID = "com.myspace";
-			String artifactId = "list-rest";
-			String version = "1.0.3-SNAPSHOT";
+			String artifactId = "rest-test";
+			String version = "1.0.4-SNAPSHOT";
 			
 			
 			Map<String, Object> params = new HashMap<String, Object>();
@@ -58,20 +59,21 @@ public class fireRules {
 			list.add(product);
 			list.add(product2);
 			list.add(product3);
-			params.put("c", customers);
-			//params.put("p",  list);
-			params.put("p",  product);
-			params.put("p1",  product2);
-			params.put("p2",  product3);
+			//params.put("c", customers);
+			//params.put("p",  product);
+			//params.put("p1",  product2);
+			//params.put("p2",  product3);
 			
 			KieServices ks = KieServices.Factory.get();
 			ReleaseId releaseId = ks.newReleaseId(groupID, artifactId, version);
 			KieContainer kContainer = ks.newKieContainer(releaseId);
 			KieSession kSession = kContainer.newKieSession();
-			kSession.getWorkItemManager().registerWorkItemHandler("rest", new RESTWorkItemHandler("root", "root", "http://localhost:8080/kie-server/services/rest/server/containers/instances/list-rest_1.0.1-SNAPSHOT"));
+			//kSession.getWorkItemManager().registerWorkItemHandler("rest", new RESTWorkItemHandler());
+			//kSession.getWorkItemManager().registerWorkItemHandler("rest", new RESTWorkItemHandler("root", "root", "http://localhost:8080/kie-server/services/rest/server/containers/instances/list-rest_1.0.1-SNAPSHOT"));
 			//new org.jbpm.process.workitem.rest.RESTWorkItemHandler("root","root","http://localhost:8080/kie-server/services/rest/server/containers/instances/list-rest_1.0.1-SNAPSHOT");
+			//new org.jbpm.process.workitem.rest.RESTWorkItemHandler();
 			KieRuntime kRuntime = (KieRuntime) kSession;
-			WorkflowProcessInstance processInstance = (WorkflowProcessInstance) kSession.startProcess("list-rest.restProcess", params);
+			WorkflowProcessInstance processInstance = (WorkflowProcessInstance) kSession.startProcess("rest-test.test", params);
 			//ProcessInstance processInstance = kRuntime.startProcess("list-rest.restProcess", params);
 			
 			System.out.println(processInstance.getProcessId());

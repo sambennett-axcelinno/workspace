@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class rulesTest {
-
+	/*
 	@Test
 	public void test() {
 		Customers customers = new Customers(1, 1, 400.00, 0.0, true, null, 62284457, 0.0, true);
@@ -73,4 +73,5 @@ public class rulesTest {
 		fRules.runProcess(customers,  product,  shop);
 		//assertEquals(135.00, product.getPrice(), 1e-8);
 	}
+	*/
 }
