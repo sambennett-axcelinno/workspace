@@ -4,7 +4,7 @@
   <artifactId>Electronics</artifactId>
   <version>0.0.15-SNAPSHOT</version>
   <description>Electronic shop project</description>
-  <!-- Testing 1 -->
+  <!-- Testing 2 -->
   <dependencies>
 		<dependency>
 			<groupId>junit</groupId>
